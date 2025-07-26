@@ -22,7 +22,8 @@ interface User {
 
 const users:User[]=[];
 console.log("prismaClient");
-const wss=new WebSocketServer({port:8080});
+const port = process.env.PORT || 8080;
+const wss=new WebSocketServer({port:Number(port)});
 
 function checkUser(token:string):string | null{
   try{
